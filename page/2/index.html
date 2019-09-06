@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/9 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/09/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
@@ -140,47 +140,712 @@
           <div id="js-content" class="content-ll">
             
   
-  
+    <article id="post-java-String类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/06/java面向对象知识点2/" class="archive-article-date">
-  	<time datetime="2019-09-06T03:02:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/java面向对象知识点2/">java面向对象知识点2</a>
+      <a class="article-title" href="/2017/10/13/java-String类/">java_String类</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2017/10/13/java-String类/" class="archive-article-date">
+  	<time datetime="2017-10-13T03:08:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1：Scanner(理解)<br>    (1)JDK5以后，帮助我们实现键盘录入数据的。<br>    (2)构造方法：<br>        public Scanner(InputStream is)</p>
+<pre><code>    Scanner sc = new Scanner(System.in);
+(3)成员方法：
+    A:hasNextXxx() 判断是否是xxx类型的元素
+    B:nextXxx() 获取xxx类型的元素
+(4)常用的两个方法
+    nextInt():获取一个int类型的数据
+    nextLine():获取一个String类型的数据
+(5)注意的小问题：
+    int--int
+    String--String
+    String--int
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    int--String 有问题
+
+    如何解决呢?
+        A:所有数据都作为String,将来要什么，就转换为什么。
+        B:重新创建一个新的Scanner对象</code></pre><p>2：String(掌握)<br>    (1)字符串：由多个字符组成的一串数据<br>    (2)构造方法：<br>        public String():创建String对象<br>        public String(byte[] bytes):把字节数组转成字符串。<br>        public String(byte[] bytes,int index,int length):把字节数组中的一部分转成字符串<br>        public String(char[] value):把字符数组转成字符串<br>        public String(char[] value,int index,int count):把字符数组的一部分转成字符串<br>        public String(String original):把字符串转成字符串</p>
+<pre><code>    String s = &quot;hello&quot;;
+(3)字符串的特点和面试题
+    A:一旦被创建，值就不能发生改变
+    B:String s = new String(&quot;hello&quot;)和String s = &quot;hello&quot;的区别
+    C:看程序写结果 ==和equals()的区别
+    D:看程序写结果 字符串变量相加和常量相加的区别
+(4)常见功能
+    A:判断功能
+        boolean equals(Object obj):比较字符串的内容是否相同，严格区分大小写
+        boolean equalsIgnoreCase(String str):比较字符串的内容是否相同，不考虑大小写
+        boolean contains(String str):判断是否包含指定的小串
+        boolean startsWith(String str):判断是否以指定的字符串开头
+        boolean endsWith(String str):判断是否以指定的字符串结尾
+        boolean isEmpty():判断字符串的内容是否为空
+    B:获取功能
+        int length():返回字符串的长度。字符的个数。
+        char charAt(int index):返回字符串中指定位置的字符。
+        int indexOf(int ch):返回指定字符在字符串中第一次出现的位置
+                97,&apos;a&apos;
+        int indexOf(String str):返回指定字符串在字符串中第一次出现的位置
+        int indexOf(int ch,int fromIndex):返回指定字符从指定位置开始在字符串中第一次出现的位置
+        int indexOf(String str,int fromIndex):返回指定字符串从指定位置开始在字符串中第一次出现的位置
+        String substring(int start):返回从指定位置开始到末尾的子串
+        String substring(int start,int end):返回从指定位置开始到指定位置结束的子串
+    C:转换功能
+        byte[] getBytes():把字符串转换为字节数组
+        char[] toCharArray():把字符串转换为字符数组
+        static String valueOf(char[] chs):把字符数组转成字符串
+        static String valueOf(int i):把int类型的数据转成字符串
+                把任意类型转换为字符串的方法。
+        String toLowerCase():把字符串转小写
+        String toUpperCase():把字符串转大写
+        String concat(String str):字符串的连接
+    D:其他功能
+        a:替换功能
+            String replace(char old,char new)
+            String replace(String old,String new)
+        b:去除字符串两空格    
+            String trim()
+        c:按字典顺序比较两个字符串
+            int compareTo(String str)
+            int compareToIgnoreCase(String str)
+(5)案例：
+    A:模拟用户登录
+    B:遍历字符串
+        a:charAt()和length()结合
+        b:转数组
+    C:统计每种类型的字符个数
+    D:把字符串首字母转大写，其他小写
+    E:把数组转成指定格式的字符串
+    F:字符串反转
+    G:统计大串中小串出现的次数
+        a:从指定位置开始查
+        b:把查过的截取掉
+    H:自己实现两个字符串的比较以及String类的equals()方法源码</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/13/java-String类/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
+    <article id="post-java面向对象之多态、接口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-    </div></section>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/06/java面向对象之多态、接口/">java面向对象之多态、接口</a>
+    </h1>
   
 
+        
+        <a href="/2017/10/06/java面向对象之多态、接口/" class="archive-article-date">
+  	<time datetime="2017-10-06T03:05:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-06</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> 1：多态(掌握)<br>    (1)同一个事物在不同时刻表现出现的多种状态。<br>        举例：水，猫和动物<br>    (2)前提<br>        A:有继承或者实现关系<br>        B:有方法重写<br>            因为抽象类中的抽象方法以及接口中的方法都必须被子类重写，调用才有意义。<br>        C:有父类或者父接口引用指向子类对象<br>    (3)多态中的成员访问特点<br>        Fu f = new Zi();<br>        A:成员变量<br>            编译看左边，运行看左边<br>        B:成员方法<br>            编译看左边，运行看右边<br>        C:静态方法<br>            编译看左边，运行看左边<br>    (4)好处和弊端<br>        A:好处<br>            提高了代码的维护性<br>            提高了代码的扩展性<br>        B:弊端<br>            不能访问子类特有功能<br>    (5)如何访问子类特有功能<br>        A:创建子类对象<br>        B:向下转型<br>    (6)多态中的转型<br>        A:向上转型<br>            子到父<br>        B:向下转型<br>            父到子(加强制转换)<br>    (7)孔子装爹案例</p>
+<p> 2：抽象类(掌握)<br>    (1)有些时候，我们对事物不能用具体的东西来描述，这个时候就应该把事物定义为抽象类。<br>    (2)抽象类的特点：<br>        A:抽象类或者抽象方法必须用abstract修饰<br>        B:抽象类中不一定有抽象方法，但是有抽象方法的类一定是抽象类<br>        C:抽象类不能实例化<br>            可以按照多态的方式实例化。<br>        D:抽象类的子类<br>            a:要么是抽象类<br>            b:要么重写抽象类中的所有抽象方法<br>    (3)抽象类的成员特点：<br>        A:成员变量<br>            可以是变量，也可以是常量<br>        B:构造方法<br>            有。<br>            不能实例化，有构造方法有什么意义呢?<br>            用于子类访问父类数据的初始化。<br>        C:成员方法<br>            可以是抽象的，也可以是非抽象的<br>    (4)抽象类的案例<br>        A:猫狗案例<br>        B:老师案例<br>        C:学生案例<br>        D:员工案例<br>    (5)两个小问题<br>        A:如果你看到一个抽象类中居然没有抽象方法,这个抽象类的意义何在?<br>          不让别人创建<br>        B:abstract不能和哪些关键字共存?<br>            a:private 冲突<br>            b:final 冲突<br>            c:static 无意义</p>
+<p> 3：接口(掌握)<br>    (1)有些时候，不是事物本身具备的功能，我们就考虑使用接口来扩展。<br>    (2)接口的特点：<br>        A:定义接口用关键字interface<br>            格式是：interface 接口名 {}<br>        B:类实现接口用关键字implements<br>            格式是：class 类名 implements 接口名 {}<br>        C:接口不能实例化<br>        D:接口的子类<br>            a:要么是抽象类<br>            b:要么重写接口中的所有方法<br>    (3)接口的成员特点<br>        A:成员变量<br>            只能是常量。<br>            默认修饰符：public static final<br>        B:成员方法<br>            只能是抽象方法。<br>            默认修饰符：public abstract<br>        推荐：<br>            建议自己写接口的时候，把默认修饰符加上。<br>    (4)类与接口的关系<br>        A:类与类<br>            继承关系，只能单继承，可以多层继承。<br>        B:类与接口<br>            实现关系，可以单实现，也可以多实现。<br>            还可以在继承一个类的同时实现多个接口。<br>        C:接口与接口<br>            继承关系，可以单继承，也可以多继承。<br>    (5)抽象类和接口的区别?<br>        A:成员区别<br>        B:关系区别<br>        C:设计理念区别<br>            抽象类：父抽象类，里面定义的是共性内容。<br>            接口：父接口，里面定义的是扩展内容。<br>    (6)接口的案例：<br>        A:猫狗案例加入跳高<br>        B:老师和学生案例加入抽烟<br>        C:教练和运动员案例加入学英语</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/06/java面向对象之多态、接口/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java面向对象之继承、多态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/28/java面向对象之继承、多态/">java面向对象之继承、多态</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/28/java面向对象之继承、多态/" class="archive-article-date">
+  	<time datetime="2017-09-28T03:04:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1:继承(掌握)<br>    (1)把多个类中相同的属性和行为提取出来，定义到一个类中，<br>       然后让这多个类和这一个类产生一个关系，这多个类就具备这一个类的属性和行为了。<br>       这种关系叫：继承。<br>    (2)继承如何表示的呢?<br>        格式：class 子类名 extends 父类名 {}<br>    (3)java中的继承特点：<br>        A:java中只能单继承<br>        B:java中可以多层继承。(继承体系)<br>    (4)java中的继承的好处和弊端<br>        A:好处<br>            a:提高了代码的复用性<br>            b:提高了代码的可维护性<br>            c:让类与类之间产生了一个关系，是多态的前提<br>        B:弊端<br>            让类与类的耦合增强了。这样一个类的改动会直接影响另一个类。</p>
+<pre><code>        设计原则：高内聚，低耦合。
+(5)java中的继承的注意事项：
+    A:私有成员不能被继承
+    B:构造方法不能被继承，想访问，通过super关键字
+    C:不能为了部分功能而去使用继承
+(6)继承中的成员关系：
+    A:成员变量
+        不同名：特别简单，一看就知道用的是谁。
+        同名：就近原则
+            访问自己的用this
+            访问父亲的用super
+    B:构造方法
+        a:子类的所有构造方法默认都是访问父类的无参构造方法
+        b:如果父类没有无参构造方法，怎么办呢?
+            通过super(...)访问父类带参构造方法
+            通过this(...)访问本类其他构造方法。(一定要有一个访问了父类的构造方法)
+            注意：super或者this只能出现一个，并且只能在语句的第一条语句。
+        为什么呢?
+            因为子类可能会访问父类的数据，所以，在子类初始化之前，要先把父类数据
+            初始化完毕。
+    C:成员方法
+        不同名：特别简单，一看就知道用的是谁。
+        同名：就近原则
+            访问自己的用this
+            访问父亲的用super
+(7)this和super的区别及应用场景
+    A:区别
+        this：本类对象的引用
+        super：父类存储空间的标识。可以理解为父类对象的引用。
+
+    B:应用场景
+        a:成员变量
+            this.变量 本类的成员变量
+            super.变量 父类的成员变量
+        b:构造方法
+            this(...) 本类的构造方法
+            super(...) 父类的构造方法
+        c:成员方法
+            this.方法名(...) 本类的成员方法
+            super.方法名(...) 父类的成员方法
+(8)练习：
+    老师类和学生类练习：
+        继承前：
+        继承后：
+    猫类和狗类练习：
+        继承前：
+        继承后：</code></pre><p>2:方法重写(掌握)<br>    (1)描述：在子类中，出现了和父类中一模一样的方法声明的现象。<br>    (2)作用：可以使用父类功能，还可以增强该功能。<br>    (3)面试题：<br>        override和overload的区别?<br>        overload可以改变返回值类型吗?<br>    (4)方法重写的注意事项：<br>        A:父类私有方法不能被重写<br>        B:子类重写方法的访问权限不能比父类的方法低<br>        C:静态只能重写静态。(其实这算不上重写)</p>
+<p>3:final关键字(掌握)<br>    (1)final:最终的意思<br>    (2)作用：可以修饰类，修饰成员变量，修饰成员方法<br>    (3)特点：<br>        A:修饰类 类不能被继承<br>        B:修饰成员变量 变量变成了常量<br>        C:修饰成员方法 方法不能被重写<br>    (4)面试题：<br>        A:final修饰局部变量<br>            a:基本类型 值不能发生改变<br>            b:引用类型 地址值不能发送改变，对象的内容是可以改变的<br>        B:final的初始化时机<br>            a:在定义时就赋值<br>            b:在构造方法完毕前赋值</p>
+<p>4:多态(掌握)<br>    (1)多态：同一个对象，在不同时刻表现出来的多种状态<br>        举例：水，猫和动物<br>    (2)多态的前提：<br>        A:有继承关系<br>        B:有方法重写<br>        C:有父类引用指向子类对象<br>    (3)多态中的成员访问特点：<br>        A:成员变量<br>            编译看左边，运行看左边<br>        B:成员方法<br>            编译看左边，运行看右边<br>        C:静态方法<br>            编译看左边，运行看左边</p>
+<pre><code>为什么：
+    因为方法有重写，而变量没有。静态方法没有重写一说。</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/28/java面向对象之继承、多态/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java面向对象知识点1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/19/java面向对象知识点1/">java面向对象知识点1</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/19/java面向对象知识点1/" class="archive-article-date">
+  	<time datetime="2017-09-19T02:48:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1:面向对象思想(理解)<br>    (1)面向对象是基于面向过程的一种编程思想<br>    (2)思想特点：<br>        A:是一种更符合我们思考习惯的思想<br>        B:把复杂的问题简单化<br>        C:让我们从执行者变成了指挥组<br>    (3)举例：<br>        A:洗衣服<br>        B:吃饭<br>        C:买电脑<br>    (4)举例并代码体现<br>        把大象装进冰箱</p>
+<p>2:类与对象(掌握)<br>    (1)我们学习编程是为了把现实世界的事物用编程语言描述来实现信息化。<br>    (2)现实世界事物是如何表达的呢?<br>        属性：外在特征<br>        行为：内在行为<br>    (3)我们学习的是java语言，它最基本的单位是类。<br>       所以我们要学会用类来体现一个事物。<br>    (4)类：是一组相关的属性和行为的集合<br>    (5)对象：是该类事物的具体个体。<br>    (6)举例：<br>        学生 类<br>        张三 对象</p>
+<p>3:类的组成(掌握)<br>    (1)成员变量<br>        其实就是变量，只不过定义在类中，方法外，并且可以不用初始化。<br>    (2)成员方法<br>        其实就是方法，只不过不需要static了<br>    (3)案例：<br>        学生类<br>            class Student {<br>                String name;<br>                int age;</p>
+<pre><code>        public void study() {}
+    }
+
+手机类(学生自学)</code></pre><p>4:类的使用(掌握)<br>    (1)创建对象<br>        格式：类名 对象名 = new 类名();<br>    (2)使用成员<br>        成员变量：对象名.变量名;<br>        成员方法：对象名.方法名(…);</p>
+<p>5:成员变量和局部变量的区别(理解)<br>    (1)在类中的位置不同<br>        A:成员变量 类中，方法外<br>        B:局部变量 方法的形式参数，或者方法体中<br>    (2)在内存中的位置不同<br>        A:成员变量 在堆中<br>        B:局部变量 在栈中<br>    (3)生命周期不同<br>        A:成员变量 随着对象的存在而存在，随着对象的消失而消失<br>        B:局部变量 随着方法的调用而存在，随着方法的调用完毕而消失<br>    (4)初始化值不同<br>        A:成员变量 有默认初始化值<br>        B:局部变量 没有默认值，必须先声明，赋值，最后才能使用</p>
+<p>6:形式参数问题(理解)<br>    (1)基本类型<br>        基本类型作为形式参数，需要的是该基本类型的值。<br>    (2)引用类型<br>        引用类型作为形式参数，需要的是该引用类型的地址值。(对象)</p>
+<p>7:匿名对象(理解)<br>    (1)匿名对象：没有名字的对象。是对象的简化书写方式。<br>    (2)使用场景<br>        A:调用方法，仅仅只调用一次<br>        B:作为实际参数传递</p>
+<p>8:封装(掌握)<br>    (1)隐藏实现细节，提供公共的访问方式<br>    (2)好处：<br>        A:隐藏实现细节，提供公共的访问方式<br>        B:提高了代码的复用性<br>        C:提高了代码的安全性<br>    (3)使用原则<br>        A:把成员变量隐藏<br>        B:给出该成员变量对应的公共访问方式</p>
+<p>9:private关键字(掌握)<br>    (1)是一个权限修饰符<br>    (2)可以修饰类的成员(成员变量和成员方法)<br>    (3)仅仅在本类中可以访问<br>    (4)标准代码：<br>        class Student {<br>            private String name;<br>            private int age;</p>
+<pre><code>    public void setName(String n) {
+        name = n;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setAge(int a) {
+        age = a;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void study() {}
+}</code></pre><p>10:this关键字(掌握)<br>    (1)this：代表本类的对象<br>    (2)应用场景：<br>        解决了局部变量隐藏成员变量的问题。<br>        其他用法和super一起讲。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/19/java面向对象知识点1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java之常用API-List集合加泛型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/16/java之常用API-List集合加泛型/">java之常用API List集合加泛型</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/16/java之常用API-List集合加泛型/" class="archive-article-date">
+  	<time datetime="2017-09-16T03:15:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1：练习和自习到底做什么(掌握)<br>    (1)早自习<br>    (2)晚自习<br>    (3)练习</p>
+<p> 2：数据结构(理解)<br>    (1)面试题：常见的数据结构有哪些?以及每种数据结构的优缺点?<br>    (2)数据结构<br>        A:栈<br>            先进后出<br>        B:队列<br>            先进先出<br>        C:数组<br>            查询快，增删慢<br>        D:链表<br>            查询慢，增删快</p>
+<p>3：List的三个实现类(掌握)<br>    (1)List的三个实现类特点<br>        A:ArrayList<br>            底层数据结构是数组，查询快，增删慢<br>            线程不安全，效率高<br>        B:Vector<br>            底层数据结构是数组，查询快，增删慢<br>            线程安全，效率低<br>        C:LinkedList<br>            底层数据结构是链表，查询慢，增删快<br>            线程不安全，效率高<br>    (2)你如何选择哪个儿子进行使用?<br>        看情况。</p>
+<pre><code>    要安全吗?
+        要：Vector(其实也不用这个有更好的方式，后面讲)
+        不要：ArrayList和LinkedList
+            查询多：ArrayList
+            增删多：LinkedList
+
+    如果你什么都不知道，就用ArrayList。
+(3)ArrayList
+    A:存储字符串并遍历
+    B:存储自定义对象并遍历
+(4)Vector
+    A:特有功能(了解)
+        a:addElement(object obj)    --    add()
+        b:elementAt(int index)        --    get()
+        c:elements()            --    iterator()
+    B:存储字符串并遍历
+    C:存储自定义对象并遍历
+(5)LinkedList
+    A:特有功能(了解)
+        a:addFirst(),addLast()
+        b:removeFirst(),removeLast()
+        c:getFirst(),getLast()
+    B:存储字符串并遍历
+    C:存储自定义对象并遍历
+(6)案例：
+    A:去除ArrayList集合中重复字符串
+    B:去除ArrayList集合中重复自定义对象
+        contains()方法的底层源码是equals()
+    C:用LinkedList模拟栈数据结构的集合，并测试</code></pre><p>4:泛型(掌握)<br>    (1)泛型：是一种把明确数据类型的工作推迟到创建对象或者调用方法的时候采取明确的特殊的数据类型。<br>    (2)格式：<br>        &lt;数据类型&gt;<br>    (3)好处：<br>        A:提高了程序的安全性<br>        B:把运行时期异常提前到了编译期<br>        C:避免了强制类型转换<br>    (4)在哪些地方使用泛型?<br>        看API即可，如果类，抽象类，接口后面跟有&lt;…&gt;说明这里需要使用<br>    (5)泛型的由来(理解)<br>        A:泛型的由来<br>        B:泛型类<br>        C:泛型方法<br>        D:泛型接口<br>        E:泛型高级<br>    (6)案例：<br>        把前面的集合案例用泛型改进。</p>
+<p> 5:JDK5新特性(掌握)<br>    (1)增强for(掌握)<br>        A:格式<br>            for(元素的数据类型 变量名 : 数组或者Collection集合对象) {<br>                使用变量名即可<br>            }<br>        B:好处<br>            简化了数组或者集合的遍历<br>        C:注意事项<br>            增强for的目前不能为null<br>    (2)静态导入(了解)<br>        A:格式<br>            import static xxx.yyy.zzz.类名.方法名;<br>            导入到了方法的级别<br>        B:注意事项<br>            a:方法必须是静态的<br>            b:如果有同名的方法，将来使用的时候还要加前缀，意义不大，所以一般不用。<br>    (3)可变参数(理解)<br>        A:针对写功能的时候，参数个数不明确的情况<br>        B:格式：<br>            修饰符 返回值类型 方法名(形式参数数据类型… 变量) {}<br>        C:注意实现<br>            a:这个变量其实是数组，它会自动把多个但是组装成一个数组<br>            b:如果一个方法有多个形式参数，可变参数一定放最后</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/16/java之常用API-List集合加泛型/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java基础知识点2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/07/java基础知识点2/">java基础知识点2</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/07/java基础知识点2/" class="archive-article-date">
+  	<time datetime="2017-09-07T02:46:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1:常量(掌握)<br>    (1)常量：在程序的运行过程中，其值不发生改变的量。<br>    (2)常量的分类：<br>        A:字面值常量<br>        B:自定义常量(面向对象部分讲)<br>    (3)字面值常量<br>        A:字符串常量 用””括起来的内容。举例：”helloworld”<br>        B:整数常量 举例:1,200<br>        C:小数常量 举例:12.5<br>        D:字符常量 用’’括起来的内容。举例：’a’,’A’,’0’<br>        E:布尔常量 比较特殊，只有两个值。举例：true,false<br>        F:空常量 null(数组部分讲)<br>    (4)Java中针对整数常量的表现形式<br>        A:二进制<br>            由0,1组成。以0b开头<br>        B:八进制<br>            由0,1,2,3,4,5,6,7组成。以0开头<br>        C:十进制<br>            由0,1,2,3,4,5,6,7,8,9组成。默认是十进制。<br>        D:十六进制<br>            由0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F组成。以0x开头。<br>            注意：字母不区分大小写。</p>
+<p>2:进制(理解)<br>    (1)一种计数的方式。x进制表示逢x进1。<br>    (2)进制转换<br>        A:其他进制到十进制<br>            系数*基数^权之和。<br>        B:十进制到其他进制<br>            除基取余,直到商为0,余数反转。<br>        C:快速转换<br>            a:二进制和十进制<br>                8421码<br>            b:二进制和八进制<br>                三位组合<br>            c:二进制和十六进制<br>                四位组合<br>        D:任意X进制到任意Y进制的转换<br>            可以使用十进制作为桥梁即可。</p>
+<p>3:有符号数据表示法(理解)<br>    (1)计算机中数据的存储和运算都是采用补码进行的。<br>    (2)数据的有符号表示法<br>        用0表示正号,1表示负号。<br>        A:原码<br>            正数:正常的二进制<br>            负数:符号为为1的二进制<br>        B:反码<br>            正数:和原码相同<br>            负数:和原码的区别是,符号位不变，数值位取反。1变0，0变1<br>        C:补码<br>            正数:和原码相同<br>            负数:反码+1<br>    (3)数据的有符号表示法练习<br>        A:已知原码，求反码和补码<br>        B:已知补码，求原码。</p>
+<p>4:变量(掌握)<br>    (1)变量：在程序的运行过程中，其值发生改变的量。<br>    (2)定义格式：<br>        A:数据类型 变量名 = 初始化值;<br>        B:数据类型 变量名;<br>          变量名 = 初始化值;</p>
+<p>5:数据类型(掌握)<br>    (1)数据类型分类<br>        A:基本类型：4类8种<br>        B:引用类型：类，接口，数组<br>    (2)基本类型<br>        A:整数            占用的内存空间<br>            byte        1<br>            short        2<br>            int        4<br>            long        8<br>        B:浮点数<br>            float        4<br>            double        8<br>        C:字符<br>            char        2<br>        D:布尔<br>            boolean        1</p>
+<pre><code>    面试题：Java中的字符可以存储一个汉字吗?为什么呢?
+(3)注意事项：
+    A:正数默认是int类型，浮点数默认是double类型
+    B:定义long类型数据的时候，建议加上L或者l。推荐L
+      定义float类型数据的时候，建议加上F或者f。推荐F
+(4)使用变量的注意事项
+    A:作用域
+        每一个变量在它所属的大括号内有效，并且，同一个作用域不能定义同名的变量。
+    B:初始化值
+        变量必须先声明，赋值，最后才能使用
+    C:在一行上定义的问题
+        可以在一行上定义多个变量，但是不建议。
+
+        int a,b;
+        a = 10;
+        b = 20;
+
+        int a = 10,b = 20;
+
+        int a = 10;
+        int b = 20;</code></pre><p>6:类型转换(掌握)<br>    注意：<br>        boolean类型不参与。<br>    (1)隐式转换：从小到大<br>        byte,short,char –&gt; int –&gt; long –&gt; float –&gt; double</p>
+<pre><code>    long为什么可以到float呢?
+        A:因为long和float的底层存储结构不同。
+        B:数据范围
+            long: 2^63
+            float: 3.4*10^38
+
+            3.4*10^38 &gt; 3.4*8^38 = 3.4*2^3^38 = 3.4*2^114 &gt; 2^63
+(2)强制转换：从大到小
+    一般不建议这样做，因为可能有精度的损失。
+    格式：
+        目标数据类型 变量名 = (目标数据类型)(被转换的数据);</code></pre><p>7:运算符(理解)<br>    (1)运算：对常量和变量进行操作的过程称为运算。<br>    (2)运算符：对常量和变量进行操作的符号称为运算符<br>    (3)表达式：由运算符把常量和变量连接起来的式子<br>        注意：表达式必须有结果</p>
+<p>8:算术运算符(掌握)<br>    (1)+,-,*,/,%,++,–<br>    (2)+:<br>        正号<br>        加法<br>        字符串连接符<br>    (3)%和/的区别<br>        %：余数<br>        /：商<br>            整数相除，结果是整数。想得到小数，可以乘以或者除以1.0</p>
+<pre><code>    %的结果的符号和前面的那个数一致。
+(4)++,--
+    A:单独使用
+        放在数据的前面和后面效果一样。
+    B:参与操作使用
+        放在数据的前面，先数据变化，再参与运算。
+        放在数据的后面，先参与运算，再数据变化。
+    C:++,--的练习题。</code></pre><p>9:赋值运算符(掌握)<br>    (1)=,+=,-=,*=,/=,%=,…<br>    (2)基本用法<br>        int a = 10;<br>        把10赋值给int类型的变量a。<br>    (3)复合用法<br>        int a = 10;<br>        a += 20;<br>        值等价于：a = a + 20;<br>        把左边和右边的结果赋值给左边，并强制转换为左边的类型。<br>    (4)面试题<br>        short s = 1; s = s + 1;<br>        short s = 1, s +=1;<br>        哪个有问题。</p>
+<p>10:关系运算符(掌握)<br>    (1)==,!=,&gt;,&gt;=,&lt;,&lt;=<br>    (2)注意：<br>        A:无论表达式简单还是复杂，结果肯定是boolean类型<br>        B:千万不要把”==”写成”=”</p>
+<p>11:逻辑运算符(掌握)<br>    (1)&amp;,|,^,!,&amp;&amp;,||<br>    (2)单用法<br>        &amp;:有false则false<br>        |:有true则true<br>        ^:相同false，不同true(情侣关系)<br>        !:偶数个，值不变；奇数个，值相反。<br>    (3)双用法:<br>        &amp;&amp;,||和&amp;,|的区别</p>
+<pre><code>&amp;&amp;具有短路效果，左边为false，右边不执行。
+||具有短路效果，左边为true，右边不执行。</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/07/java基础知识点2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java基础知识点1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/06/java基础知识点1/">java基础知识点1</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/06/java基础知识点1/" class="archive-article-date">
+  	<time datetime="2017-09-06T00:18:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1:DOS命令<br>    (1)切换盘符<br>        d: 回车<br>    (2)显示某目录下的所有文件或者文件夹<br>        dir 回车<br>    (3)创建文件夹<br>        md 文件夹名称 回车<br>    (4)删除文件夹<br>        rd 文件夹名称 回车<br>    (5)进入目录<br>        单级进入 cd 目录名称<br>        多级进入 cd 目录名称1\目录名称2...<br>    (6)回退目录<br>        单级回退 cd..<br>        回退根目录 cd<br>    (7)删除文件<br>        del 文件名称<br>        *.txt 可以表示多个文件名称<br>    (8)清屏<br>        cls<br>    (9)退出<br>        exit<br>    (10)扩展DOS命令<br>        删除带内容的文件夹<br>        rd /s 文件夹名称 会提示是否删除<br>        rd /q /s 文件夹名称 直接删除</p>
+<p>2:Java语言发展史<br>    (1)JDK的版本<br>        1.4.2<br>        1.5<br>        1.6<br>        1.7<br>        1.8<br>    (2)Java语言的平台<br>        JavaSE<br>        JavaEE<br>        JavaME(Android)</p>
+<p>3:JDK,JRE,JVM(掌握)<br>    (1)JVM<br>        保证Java语言跨平台。针对不同的操心系统提供不同的JVM。</p>
+<pre><code>    问题：java语言是跨平台的吗?JVM是跨平台的吗?
+(2)JRE
+    java程序的运行环境。包括JVM和核心类库
+(3)JDK
+    java开发环境。包括JRE和开发工具(javac,java)</code></pre><p>4:HelloWorld案例(掌握)<br>    (1)写程序<br>        class HelloWorld {<br>            public static void main(String[] args) {<br>                System.out.println(“HelloWorld”);<br>            }<br>        }<br>    (2)解释该程序<br>        A:class是用来定义类的，格式是: class 类名 {}<br>        B:程序要独立运行，必须有主方法，格式是：<br>            public static void main(String[] args) { }<br>        C:程序要输出内容，必须有输出语句，格式是：<br>            System.out.println(“HelloWorld”);<br>    (3)程序的编译和运行<br>        A:javac命令编译程序，后面跟的是文件名称<br>            javac HelloWorld.java<br>        B:java命令执行程序，后面跟的是class文件名称，不含扩展名<br>            java HelloWorld<br>    (4)一个Java程序的开发流程<br>        A:编写Java源程序<br>        B:通过javac命令编译java程序，生成字节码文件<br>        C:通过java命令运行字节码文件<br>5:HelloWorld案例常见问题(理解)<br>    (1)文件名和类名可以不一致，但是建议一致<br>    (2)找不到文件<br>    (3)单词写错误<br>    (4)括号匹配问题，建议大家写程序的时候，成对写括号<br>    (5)中英文问题，java程序一般都是英文状态的</p>
+<p>6:path环境变量<br>    (1)为什么要配置path环境变量<br>        为了让javac和java命令可以在任意目录下使用<br>    (2)如何配置<br>        A:方式1 直接修改path，在前面追加JDK的bin目录<br>        B:方式2<br>            新建JAVA_HOME: JDK的安装目录<br>            修改path: %JAVA_HOME%\bin;后面是以前的环境变量</p>
+<p>7:classpath环境变量<br>    (1)为什么要配置classpath环境变量<br>        为了让class文件可以在任意目录下运行<br>    (2)如何配置<br>        新建：classpath，把你想要在任意目录下运行的class文件所在目录配置过去即可。<br>        注意：将来在执行的时候，有先后顺序关系<br>    (3)path和classpath的区别<br>        path是为了让exe文件可以在任意目录下运行<br>        classpath是为了让class文件可以在任意目</p>
+<p>(8)注释(掌握)<br>    (1)注释:用于解释说明程序的文字<br>    (2)分类：<br>        A:单行：//注释文字<br>        B:多行：/* 注释文字 <em>/<br>        C:文档注释：/*</em> 注释文字 */<br>    (3)带注释的HelloWorld案例<br>    (4)注释的作用：<br>        A:解释说明程序，提高程序的阅读性<br>        B:帮助我们调试程序</p>
+<p>(9)关键字<br>    (1)关键字:被Java赋予特定含义的单词<br>    (2)特点:全部小写<br>    (3)注意事项：<br>        A:goto和const作为保留字存在，目前不使用<br>        B:类似于Editplus这样的高级记事本，会对关键字有特殊颜色标记，方便记忆</p>
+<p>(10)标识符<br>    (1)标识符：给类，接口，方法或者变量起名字的符号<br>    (2)组成规则：<br>        A:英文字母大小写<br>        B:数字<br>        C:_和$<br>    (3)注意事项：<br>        A:不能以数字开头<br>        B:不能是Java中的关键字<br>        C:区分大小写<br>            Student,student 这是两个名称<br>    (4)常见命名方式：<br>        A:包 其实就是文件夹,用于解决相同类名问题<br>            全部小写<br>            单级：com<br>            多级：cn.itcast</p>
+<pre><code>B:类或者接口
+    一个单词：首字母大写
+        Student,Person,Teacher
+    多个单词：每个单词的首字母大写
+        HelloWorld,MyName,NameDemo
+
+C:方法或者变量
+    一个单词：全部小写
+        name,age,show()
+    多个单词：从第二个单词开始，每个单词首字母大写
+        myName,showAllStudentNames()
+
+D:常量
+    一个单词：全部大写
+        AGE
+    多个单词：每个单词都大写，用_连接
+        STUDENT_MAX_AGE</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/06/java基础知识点1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 
 
           </div>
@@ -202,9 +867,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

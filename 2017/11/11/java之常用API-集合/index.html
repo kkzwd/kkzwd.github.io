@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/9 | Hexo</title>
+  <title>java之常用API 集合 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/09/index.html">
+  <meta name="description" content="1：对象数组(掌握)    (1)数组：        基本类型的数组：int[]        引用类型的数组：Student[]    (2)案例：        用对象数组存储三个学生对象，并遍历。 学生的代码，我们写过很多遍了。 主要代码：     Student[] students = new Student[3];      Student s1 = new Student(&amp;quo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java之常用API 集合">
+<meta property="og:url" content="http://yoursite.com/2017/11/11/java之常用API-集合/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1：对象数组(掌握)    (1)数组：        基本类型的数组：int[]        引用类型的数组：Student[]    (2)案例：        用对象数组存储三个学生对象，并遍历。 学生的代码，我们写过很多遍了。 主要代码：     Student[] students = new Student[3];      Student s1 = new Student(&amp;quo">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-06T03:14:47.402Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="java之常用API 集合">
+<meta name="twitter:description" content="1：对象数组(掌握)    (1)数组：        基本类型的数组：int[]        引用类型的数组：Student[]    (2)案例：        用对象数组存储三个学生对象，并遍历。 学生的代码，我们写过很多遍了。 主要代码：     Student[] students = new Student[3];      Student s1 = new Student(&amp;quo">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -138,49 +142,265 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java之常用API-集合" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/06/java面向对象知识点2/" class="archive-article-date">
-  	<time datetime="2019-09-06T03:02:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/java面向对象知识点2/">java面向对象知识点2</a>
+    <h1 class="article-title" itemprop="name">
+      java之常用API 集合
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2017/11/11/java之常用API-集合/" class="archive-article-date">
+  	<time datetime="2017-11-11T03:13:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1：对象数组(掌握)<br>    (1)数组：<br>        基本类型的数组：int[]<br>        引用类型的数组：Student[]<br>    (2)案例：<br>        用对象数组存储三个学生对象，并遍历。</p>
+<pre><code>学生的代码，我们写过很多遍了。
+主要代码：
+    Student[] students = new Student[3];
 
+    Student s1 = new Student(&quot;林青霞&quot;,18);
+    Student s2 = new Student(&quot;风清扬&quot;,21);
+    Student s3 = new Student(&quot;赵雅芝&quot;,60);
+
+    students[0] = s1;
+    students[1] = s2;
+    students[2] = s3;
+
+    for(int x=0; x&lt;students.length; x++) {
+        Student s = students[x];
+        System.out.println(s.getName()+&quot;---&quot;+s.getAge());
+    }</code></pre><p>2：Collection集合(掌握)<br>    (1)集合的由来<br>        我们学习的是面向对象的语言，而面向对象的语言常见的操作就是操作对象。<br>        为了方便我们对多个对象进行操作，我们可以使用对象数组来进行。<br>        但是对象数组的长度是固定的，不适应变化的需求，所以，java就提供了集合<br>        供我们来使用。<br>    (2)集合的特点<br>        A:长度可变<br>        B:只能存储引用类型<br>        C:可以存储多种引用类型<br>    (3)数组和集合的区别<br>        A:数组的长度固定;数组可以存储基本类型，也可以存储引用类型;数组存储的是同一种数据类型的元素<br>        B:集合的长度可变;集合只能存储引用类型;集合可以存储多种引用类型。<br>    (4)集合的继承体系结构<br>        多种集合类的数据结构不同，但是功能相似，所以，我们不断的向上抽取，就形成了集合的继承体系结构<br>            Collection<br>                |–List<br>                    |–ArrayList<br>                    |–Vector<br>                    |–LinkedList<br>                |–Set<br>                    |–HashSet<br>                    |–TreeSet</p>
+<pre><code>    面对这样的继承体系结构,我们该学习谁,使用谁呢?
+        学习：顶层，因为顶层定义的是共性功能。
+        使用：底层，因为底层才是具体的实现类，并且具有最多的功能。
+(5)Collection的功能概述：(自己补齐中文意思)
+    A:添加功能
+        add(Object obj)
+        addAll(Collection c)
+    B:移除功能
+        remove(Object obj)
+        removeAll(Collection c)
+        clear()
+    C:判断功能
+        contains(Object obj)
+        containsAll(Collection c)
+        isEmpty()
+    D:获取功能
+        iterator()
+        size()
+    E:交集功能
+        retainAll(Collection c)
+    F:转数组功能
+        toArray()
+
+    注意：
+        所有带all的不用掌握
+        交集和转数组不用掌握
+(6)迭代器的使用
+    A:迭代器的使用
+        依赖于集合存在,本身有两个方法
+        a:hasNext()
+        b:next()
+    B:集合的使用步骤
+        a:创建集合对象
+        b:创建元素对象
+        c:把元素添加到集合中
+        d:遍历集合
+            通过集合对象获取迭代器对象
+            通过迭代器对象的hasNext()方法判断是否有元素
+            通过迭代器对象的next()方法获取元素，并移动到下一个位置
+    C:迭代器的原理
+        定义为了接口，由具体的集合类通过内部类的方式提供实现。
+(7)案例：
+    A:Collection存储字符串并遍历
+        Collection c = new ArrayList();
+
+        c.add(&quot;hello&quot;);
+        c.add(&quot;world&quot;);
+        c.add(&quot;java&quot;);
+
+        Iterator it = c.iterator();
+        while(it.hasNext()) {
+            String s = (String) it.next();
+            System.out.println(s);
+        }
+    B:Collection存储自定义对象并遍历
+        Collection c = new ArrayList();
+
+        Student s1 = new Student(&quot;林青霞&quot;,18);
+        Student s2 = new Student(&quot;风清扬&quot;,21);
+        Student s3 = new Student(&quot;赵雅芝&quot;,60);
+
+        c.add(s1);
+        c.add(s2);
+        c.add(s3);
+
+        Iterator it = c.iterator();
+        while(it.hasNext()) {
+            Student s = (Student) it.next();
+            System.out.println(s.getName()+&quot;---&quot;+s.getAge());
+        }</code></pre><p>3：List集合(掌握)<br>    (1)List集合的特点<br>        元素有序(存储顺序和取出顺序一致),可重复。<br>    (2)List集合的特有功能：(自己补齐中文意思)<br>        A:add(int index,Object obj)<br>        B:remove(int index)<br>        C:get(int index)<br>        D:set(int index,Object obj)<br>        E:listIterator()<br>    (3)List集合的特有遍历功能<br>        通过size()和get()方法结合即可<br>    (4)ListIterator的概述和使用(理解)<br>        A:ListIterator是Iterator的子接口<br>        B:ListIterator可以逆向遍历，但是意义不大。<br>            因为它需要先正向遍历。<br>        C:并发修改异常产生的原因和解决方案<br>            a:原因<br>                用迭代器遍历集合的时候，用集合去修改了集合的元素。<br>            b:解决方案<br>                用普通for遍历，并用集合去添加元素<br>                用列表迭代器遍历，并用列表迭代器去添加元素<br>    (5)案例：<br>        A:List存储字符串并遍历<br>            List list = new ArrayList();</p>
+<pre><code>    list.add(&quot;hello&quot;);
+    list.add(&quot;world&quot;);
+    list.add(&quot;java&quot;);
+
+    Iterator it = list.iterator();
+    while(it.hasNext()) {
+        String s = (String) it.next();
+        System.out.println(s);
+    }
+
+    for(int x=0; x&lt;list.size(); x++) {
+        String s = (String) list.get(x);
+        System.out.println(s);
+    }
+B:List存储自定义对象并遍历(自己补齐)</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/11/java之常用API-集合/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/11/22/java集合之Set/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java集合之Set
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/11/06/java之正则表达式、日期类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java之正则表达式、日期类</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -203,8 +423,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

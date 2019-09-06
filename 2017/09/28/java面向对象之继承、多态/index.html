@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/9 | Hexo</title>
+  <title>java面向对象之继承、多态 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/09/index.html">
+  <meta name="description" content="1:继承(掌握)    (1)把多个类中相同的属性和行为提取出来，定义到一个类中，       然后让这多个类和这一个类产生一个关系，这多个类就具备这一个类的属性和行为了。       这种关系叫：继承。    (2)继承如何表示的呢?        格式：class 子类名 extends 父类名 {}    (3)java中的继承特点：        A:java中只能单继承        B">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java面向对象之继承、多态">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/java面向对象之继承、多态/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1:继承(掌握)    (1)把多个类中相同的属性和行为提取出来，定义到一个类中，       然后让这多个类和这一个类产生一个关系，这多个类就具备这一个类的属性和行为了。       这种关系叫：继承。    (2)继承如何表示的呢?        格式：class 子类名 extends 父类名 {}    (3)java中的继承特点：        A:java中只能单继承        B">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-06T03:09:54.822Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="java面向对象之继承、多态">
+<meta name="twitter:description" content="1:继承(掌握)    (1)把多个类中相同的属性和行为提取出来，定义到一个类中，       然后让这多个类和这一个类产生一个关系，这多个类就具备这一个类的属性和行为了。       这种关系叫：继承。    (2)继承如何表示的呢?        格式：class 子类名 extends 父类名 {}    (3)java中的继承特点：        A:java中只能单继承        B">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -138,49 +142,215 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java面向对象之继承、多态" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/06/java面向对象知识点2/" class="archive-article-date">
-  	<time datetime="2019-09-06T03:02:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/java面向对象知识点2/">java面向对象知识点2</a>
+    <h1 class="article-title" itemprop="name">
+      java面向对象之继承、多态
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2017/09/28/java面向对象之继承、多态/" class="archive-article-date">
+  	<time datetime="2017-09-28T03:04:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1:继承(掌握)<br>    (1)把多个类中相同的属性和行为提取出来，定义到一个类中，<br>       然后让这多个类和这一个类产生一个关系，这多个类就具备这一个类的属性和行为了。<br>       这种关系叫：继承。<br>    (2)继承如何表示的呢?<br>        格式：class 子类名 extends 父类名 {}<br>    (3)java中的继承特点：<br>        A:java中只能单继承<br>        B:java中可以多层继承。(继承体系)<br>    (4)java中的继承的好处和弊端<br>        A:好处<br>            a:提高了代码的复用性<br>            b:提高了代码的可维护性<br>            c:让类与类之间产生了一个关系，是多态的前提<br>        B:弊端<br>            让类与类的耦合增强了。这样一个类的改动会直接影响另一个类。</p>
+<pre><code>        设计原则：高内聚，低耦合。
+(5)java中的继承的注意事项：
+    A:私有成员不能被继承
+    B:构造方法不能被继承，想访问，通过super关键字
+    C:不能为了部分功能而去使用继承
+(6)继承中的成员关系：
+    A:成员变量
+        不同名：特别简单，一看就知道用的是谁。
+        同名：就近原则
+            访问自己的用this
+            访问父亲的用super
+    B:构造方法
+        a:子类的所有构造方法默认都是访问父类的无参构造方法
+        b:如果父类没有无参构造方法，怎么办呢?
+            通过super(...)访问父类带参构造方法
+            通过this(...)访问本类其他构造方法。(一定要有一个访问了父类的构造方法)
+            注意：super或者this只能出现一个，并且只能在语句的第一条语句。
+        为什么呢?
+            因为子类可能会访问父类的数据，所以，在子类初始化之前，要先把父类数据
+            初始化完毕。
+    C:成员方法
+        不同名：特别简单，一看就知道用的是谁。
+        同名：就近原则
+            访问自己的用this
+            访问父亲的用super
+(7)this和super的区别及应用场景
+    A:区别
+        this：本类对象的引用
+        super：父类存储空间的标识。可以理解为父类对象的引用。
 
+    B:应用场景
+        a:成员变量
+            this.变量 本类的成员变量
+            super.变量 父类的成员变量
+        b:构造方法
+            this(...) 本类的构造方法
+            super(...) 父类的构造方法
+        c:成员方法
+            this.方法名(...) 本类的成员方法
+            super.方法名(...) 父类的成员方法
+(8)练习：
+    老师类和学生类练习：
+        继承前：
+        继承后：
+    猫类和狗类练习：
+        继承前：
+        继承后：</code></pre><p>2:方法重写(掌握)<br>    (1)描述：在子类中，出现了和父类中一模一样的方法声明的现象。<br>    (2)作用：可以使用父类功能，还可以增强该功能。<br>    (3)面试题：<br>        override和overload的区别?<br>        overload可以改变返回值类型吗?<br>    (4)方法重写的注意事项：<br>        A:父类私有方法不能被重写<br>        B:子类重写方法的访问权限不能比父类的方法低<br>        C:静态只能重写静态。(其实这算不上重写)</p>
+<p>3:final关键字(掌握)<br>    (1)final:最终的意思<br>    (2)作用：可以修饰类，修饰成员变量，修饰成员方法<br>    (3)特点：<br>        A:修饰类 类不能被继承<br>        B:修饰成员变量 变量变成了常量<br>        C:修饰成员方法 方法不能被重写<br>    (4)面试题：<br>        A:final修饰局部变量<br>            a:基本类型 值不能发生改变<br>            b:引用类型 地址值不能发送改变，对象的内容是可以改变的<br>        B:final的初始化时机<br>            a:在定义时就赋值<br>            b:在构造方法完毕前赋值</p>
+<p>4:多态(掌握)<br>    (1)多态：同一个对象，在不同时刻表现出来的多种状态<br>        举例：水，猫和动物<br>    (2)多态的前提：<br>        A:有继承关系<br>        B:有方法重写<br>        C:有父类引用指向子类对象<br>    (3)多态中的成员访问特点：<br>        A:成员变量<br>            编译看左边，运行看左边<br>        B:成员方法<br>            编译看左边，运行看右边<br>        C:静态方法<br>            编译看左边，运行看左边</p>
+<pre><code>为什么：
+    因为方法有重写，而变量没有。静态方法没有重写一说。</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/09/28/java面向对象之继承、多态/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/10/06/java面向对象之多态、接口/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java面向对象之多态、接口
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/09/19/java面向对象知识点1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java面向对象知识点1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -203,8 +373,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

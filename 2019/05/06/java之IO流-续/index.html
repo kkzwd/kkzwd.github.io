@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/9 | Hexo</title>
+  <title>java之IO流 续 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/09/index.html">
+  <meta name="description" content="1:字节缓冲流(掌握)    (1)为了提高效率，java就提供了字节缓冲区流。    (2)字节缓冲区流        BufferedInputStream        BufferedOutputStream    (3)复制视频文件        A:基本字节流一次读写一个字节        B:基本字节流一次读写一个字节数组        C:高效字节流一次读写一个字节">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java之IO流 续">
+<meta property="og:url" content="http://yoursite.com/2019/05/06/java之IO流-续/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1:字节缓冲流(掌握)    (1)为了提高效率，java就提供了字节缓冲区流。    (2)字节缓冲区流        BufferedInputStream        BufferedOutputStream    (3)复制视频文件        A:基本字节流一次读写一个字节        B:基本字节流一次读写一个字节数组        C:高效字节流一次读写一个字节">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-06T03:23:23.822Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="java之IO流 续">
+<meta name="twitter:description" content="1:字节缓冲流(掌握)    (1)为了提高效率，java就提供了字节缓冲区流。    (2)字节缓冲区流        BufferedInputStream        BufferedOutputStream    (3)复制视频文件        A:基本字节流一次读写一个字节        B:基本字节流一次读写一个字节数组        C:高效字节流一次读写一个字节">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -138,49 +142,188 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java之IO流-续" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/06/java面向对象知识点2/" class="archive-article-date">
-  	<time datetime="2019-09-06T03:02:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/java面向对象知识点2/">java面向对象知识点2</a>
+    <h1 class="article-title" itemprop="name">
+      java之IO流 续
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2019/05/06/java之IO流-续/" class="archive-article-date">
+  	<time datetime="2019-05-06T03:22:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1:字节缓冲流(掌握)<br>    (1)为了提高效率，java就提供了字节缓冲区流。<br>    (2)字节缓冲区流<br>        BufferedInputStream<br>        BufferedOutputStream<br>    (3)复制视频文件<br>        A:基本字节流一次读写一个字节<br>        B:基本字节流一次读写一个字节数组<br>        C:高效字节流一次读写一个字节<br>        D:高效字节流一次读写一个字节数组<br>    (4)流的一些名字<br>        A:节点流 基本流<br>        B:处理流 高级流</p>
+<p>2:转换流(理解)<br>    (1)因为字节流操作文本文件不是特别的方便，所以，java就提供了转换流。<br>       用来让我们操作文本文件数据更方便一些<br>    (2)转换流本身是一个字符流<br>        字符流 = 字节流 + 编码表<br>    (3)编码表<br>        字符和对应数据组成的一张表</p>
+<pre><code>    常见编码表：
+        ASCII
+        ISO-8859-1
+        GB2312,GBK,GB18030
+        BIG5
+        UTF-8
+(4)编码问题
+    A:String的编码问题
+    B:IO流中的编码问题
 
+    方案：
+        统一编码，就不会有任何问题。</code></pre><p>3:字符流(掌握)<br>    (1)字符流体系<br>        Reader<br>            |–InputStreamReader<br>                |–FileReader<br>            |–BufferedReader<br>        Writer<br>            |–OutputStreamWriter<br>                |–FileWriter<br>            |–BufferedWriter<br>    (2)字符流操作案例<br>        A:基本字符流一次读写一个字符<br>        B:基本字符流一次读写一个字符数组<br>        C:高效字符流一次读写一个字符<br>        D:高效字符流一次读写一个字符数组<br>        E:高效字符流一次读写一个字符串</p>
+<p>4:IO流小结(掌握)<br>    IO流<br>        |–字节流<br>            |–输入流 InputStream<br>                |–FileInputStream<br>                |–BufferedInputStream<br>            |–输出流 OutputStream<br>                |–FileOutputStream<br>                |–BufferedOutputStream<br>        |–字符流<br>            |–输入流 Reader<br>                |–FileReader<br>                |–BufferedReader<br>            |–输出流 Writer<br>                |–FileWriter<br>                |–BufferedWriter</p>
+<pre><code>复制文本文件：
+    9种方案。
+    字节流：4种
+    字符流：5种
+    建议使用字符流。并且用最后一种。
+
+复制二进制流数据：
+    4种方案。
+
+如果你不知道，用字节流</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/05/06/java之IO流-续/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/06/13/java之多线程/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java之多线程
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2018/05/06/java之递归、IO流问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java之递归、IO流问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -203,8 +346,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

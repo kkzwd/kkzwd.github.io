@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/9 | Hexo</title>
+  <title>java之异常 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/09/index.html">
+  <meta name="description" content="1：异常(理解)    (1)程序出现的不正常的情况。    (2)异常分类        Throwable            |–Error    严重的问题，不需要处理            |–Exception                |–RuntimeException    可以处理，也可以不处理。一般就是程序出问题了，需要该程序。                |–非Ru">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java之异常">
+<meta property="og:url" content="http://yoursite.com/2018/04/06/java之异常/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1：异常(理解)    (1)程序出现的不正常的情况。    (2)异常分类        Throwable            |–Error    严重的问题，不需要处理            |–Exception                |–RuntimeException    可以处理，也可以不处理。一般就是程序出问题了，需要该程序。                |–非Ru">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-06T03:20:03.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="java之异常">
+<meta name="twitter:description" content="1：异常(理解)    (1)程序出现的不正常的情况。    (2)异常分类        Throwable            |–Error    严重的问题，不需要处理            |–Exception                |–RuntimeException    可以处理，也可以不处理。一般就是程序出问题了，需要该程序。                |–非Ru">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -138,49 +142,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java之异常" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/06/java面向对象知识点2/" class="archive-article-date">
-  	<time datetime="2019-09-06T03:02:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/java面向对象知识点2/">java面向对象知识点2</a>
+    <h1 class="article-title" itemprop="name">
+      java之异常
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2018/04/06/java之异常/" class="archive-article-date">
+  	<time datetime="2018-04-06T03:19:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1：异常(理解)<br>    (1)程序出现的不正常的情况。<br>    (2)异常分类<br>        Throwable<br>            |–Error    严重的问题，不需要处理<br>            |–Exception<br>                |–RuntimeException    可以处理，也可以不处理。一般就是程序出问题了，需要该程序。<br>                |–非RuntimeException    是需要进行处理的，否则编译不通过。<br>        举例：班长去旅游<br>    (3)jvm的默认处理方案<br>        把异常的类名，原因，和位置等信息输出在了控制台。<br>        会在哪里跌倒哪里坐下来。程序停止。<br>    (4)自己处理异常的方案<br>        A:try…catch…finally<br>            变形:<br>                try…catch…<br>                try…catch…catch…catch…<br>                try…catch…finally<br>                try…catch…catch…catch…finally<br>                try…finally<br>        B:throws<br>            把问题抛出</p>
+<pre><code>    建议使用A处理方案。实在解决不了，使用B方案。
+(5)编译时期异常和运行时期异常的区别?
+    A:编译时期异常    必须处理，否则程序不能通过编译
+    B:运行时期异常    可以处理，也可以不处理。一般不处理。
+(6)throws和throw的区别?
+    A:throws
+        方法声明上,后面跟的是类名,用逗号隔开，可以跟多个。表示可能有异常
+    B:throw
+        方法体中,后面跟的是对象名,只能跟一个。表示有一个异常产生
+(7)finally的面试题?
+    A:特点及注意事项
+        a:被finally控制的代码永远会执行
+        b:注意
+            在执行finally之前jvm退出了，就不会执行了
+    B:final,finally和finalize的区别?
+    C:如果catch里面有return，finally还执行吗?如果执行，在return前还是后。
+(8)自定义异常 把最后一个代码练习一遍。
 
+看到写代码调用方法，出现了问题，会看信息和点击鼠标即可。</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/04/06/java之异常/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/05/06/java之递归、IO流问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java之递归、IO流问题
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/11/25/java集合之Map/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java集合之Map</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -203,8 +341,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

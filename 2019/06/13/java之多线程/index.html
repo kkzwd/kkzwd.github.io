@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/9 | Hexo</title>
+  <title>java之多线程 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/09/index.html">
+  <meta name="description" content="1：多线程(理解)    (1)多进程        进程：正在执行的应用程序。        多进程的意义?            提高了CPU的使用率    (2)多线程        线程：进程的执行路径，执行单元。        多线程的意义?            提高了应用程序的使用率        随机性原理：            因为多个线程不断去抢CPU的资源，CPU就在这多个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java之多线程">
+<meta property="og:url" content="http://yoursite.com/2019/06/13/java之多线程/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1：多线程(理解)    (1)多进程        进程：正在执行的应用程序。        多进程的意义?            提高了CPU的使用率    (2)多线程        线程：进程的执行路径，执行单元。        多线程的意义?            提高了应用程序的使用率        随机性原理：            因为多个线程不断去抢CPU的资源，CPU就在这多个">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-06T03:24:41.162Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="java之多线程">
+<meta name="twitter:description" content="1：多线程(理解)    (1)多进程        进程：正在执行的应用程序。        多进程的意义?            提高了CPU的使用率    (2)多线程        线程：进程的执行路径，执行单元。        多线程的意义?            提高了应用程序的使用率        随机性原理：            因为多个线程不断去抢CPU的资源，CPU就在这多个">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -138,49 +142,197 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java之多线程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/06/java面向对象知识点2/" class="archive-article-date">
-  	<time datetime="2019-09-06T03:02:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/06/java面向对象知识点2/">java面向对象知识点2</a>
+    <h1 class="article-title" itemprop="name">
+      java之多线程
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2019/06/13/java之多线程/" class="archive-article-date">
+  	<time datetime="2019-06-13T03:23:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1：多线程(理解)<br>    (1)多进程<br>        进程：正在执行的应用程序。<br>        多进程的意义?<br>            提高了CPU的使用率<br>    (2)多线程<br>        线程：进程的执行路径，执行单元。<br>        多线程的意义?<br>            提高了应用程序的使用率<br>        随机性原理：<br>            因为多个线程不断去抢CPU的资源，CPU就在这多个线程间进行快速的切换，造成了随机性。<br>    (3)并行和并发<br>        并行：逻辑上同时，同一个时间点（多核系统）<br>        并发：物理上同时，同一个时间内<br>    (4)多线程的实现方案(自己补齐实现步骤和代码)<br>        A:继承Thread类<br>        B:实现Runnable接口<br>    (5)常见的几个小问题<br>        A:为什么要重写run()方法        run()中的方法才是要执行的语句<br>        B:启动线程使用的是哪个方法    start()<br>        C:start()和run()方法的区别    start（）开启线程，并自动调用run（）方法；而run()仅仅是普通的方法调用，不能开启新的线程<br>        D:一个线程能不能启动多次    不能，否则报线程状态异常<br>        E:有了继承Thread类实现，为什么还要有实现接口的实现    java只支持单继承，如果一个类已经继承了一个类，则不能再继承Thread类，而实现接口不同<br>        F:生命周期    创建–&gt; 就绪 &lt;–&gt; 执行 –&gt; 结束，其中可能会有阻塞状态,阻塞后可以到就绪或结束。<br>    (6)线程的调度<br>        线程调度：<br>            A:分时调度  每个线程抢到CPU执行权的机会相同<br>            B:抢占式调度    每个线程根据其优先级的高低，抢占CPU执行权的概率不同<br>            java采用第二种方案。<br>        获取和设置线程的优先级。<br>            默认优先级是5<br>            优先级范围是1-10<br>    (7)线程的控制<br>        A:线程休眠 public static void sleep(long millis)</p>
+<pre><code>    B:线程加入 public final void join()
 
+    C:线程礼让 public static void yield()
+
+    D:守护线程 public final void setDaemon(boolean on)
+    E:中断线程 public final void stop()(已过时，但可以使用)
+           public void interrupt()
+
+(8)生命周期图(看懂,最好能够自己画)
+(9)通过多线程模拟电影院卖票
+    A:继承Thread类
+    B:实现Runnable接口
+(10)通过多线程模拟电影院卖票(加入延迟)
+    A:相同的票卖多次
+        CPU的一次执行必须是原子性操作
+    B:出现了负数的票
+        线程的随机性和延迟
+(11)线程安全问题是如何产生的呢?
+    A:多线程环境
+    B:有共享数据
+    C:多条语句操作共享数据
+(12)解决方案：
+    A:同步代码块
+        格式：
+            synchronized(对象) {
+                需要被同步的代码
+            }
+            对象可以是任意对象。对象，即是锁
+    B:同步方法
+        非静态    对象是this
+        静态    对象是当前类的字节码文件对象
+(13)查看以前学习的几个类的源码
+    StringBuffer,Vector,Hashtable</code></pre>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/13/java之多线程/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/09/06/java面向对象知识点2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java面向对象知识点2
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/05/06/java之IO流-续/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java之IO流 续</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -203,8 +355,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
